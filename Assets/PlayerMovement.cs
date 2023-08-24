@@ -27,11 +27,16 @@ public class PlayerMovement : MonoBehaviour
     public void CheckDistanceFromGoal()
     {
 
-        float distance = Mathf.Sqrt(Mathf.Pow((transform.position.x - goalObject.position.x), 2) + Mathf.Pow((transform.position.z - goalObject.position.z), 2));
+        float distance = Distance(transform, goalObject);
 
         if (distance < minDistance)
         {
             Debug.Log("TAPOS NA");
         }
+    }
+    
+    private float Distance(Transform firstPos, Transform secondPos)
+    {
+        return Mathf.Sqrt(Mathf.Pow((firstPos.position.x - secondPos.position.x), 2) + Mathf.Pow((firstPos.position.y - secondPos.position.y), 2) + Mathf.Pow((firstPos.position.z - secondPos.position.z), 2));
     }
 }

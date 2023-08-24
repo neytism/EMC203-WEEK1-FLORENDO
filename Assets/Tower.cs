@@ -24,7 +24,7 @@ public class Tower : MonoBehaviour
 
     private void IsPlayerInRange()
     {
-        float distance = Mathf.Sqrt(Mathf.Pow((transform.position.x - player.position.x), 2) + Mathf.Pow((transform.position.z - player.position.z), 2));
+        float distance = Distance(transform, player);
 
         if (distance < towerRange)
         {
@@ -36,5 +36,10 @@ public class Tower : MonoBehaviour
             Debug.Log("IsFar");
             GetComponent<MeshRenderer>().material = normal;
         }
+    }
+
+    private float Distance(Transform firstPos, Transform secondPos)
+    {
+        return Mathf.Sqrt(Mathf.Pow((firstPos.position.x - secondPos.position.x), 2) + Mathf.Pow((firstPos.position.y - secondPos.position.y), 2) + Mathf.Pow((firstPos.position.z - secondPos.position.z), 2));
     }
 }
