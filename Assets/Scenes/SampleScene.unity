@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_LocalPosition.x
@@ -445,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_LocalPosition.x
@@ -506,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_LocalPosition.x
@@ -567,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_LocalPosition.x
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   goalObject: {fileID: 2077658388}
-  minDistance: 5
+  minDistance: 2
 --- !u!136 &1589590836
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -947,7 +947,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4732992000460632994
 PrefabInstance:

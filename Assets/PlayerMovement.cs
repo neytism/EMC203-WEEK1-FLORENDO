@@ -9,6 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public Transform goalObject;
     public float minDistance = 5;
 
+    private Vector3 staringPoint;
+
+    private void Start()
+    {
+        staringPoint = transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (distance < minDistance)
         {
-            Debug.Log("TAPOS NA");
+            Time.timeScale = 0f;
+            Debug.Log("Goal touched!");
         }
     }
     
@@ -41,5 +49,10 @@ public class PlayerMovement : MonoBehaviour
         float zDifference = firstPos.z - secondPos.z;
         
         return Mathf.Sqrt(Mathf.Pow((xDifference), 2) + Mathf.Pow((yDifference), 2) + Mathf.Pow((zDifference), 2));
+    }
+
+    public void ReturnToStartingPoint()
+    {
+        transform.position = staringPoint;
     }
 }

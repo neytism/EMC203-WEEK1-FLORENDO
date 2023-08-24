@@ -26,6 +26,12 @@ public class Tower : MonoBehaviour
     void Update()
     {
         ColorChanger();
+
+        if (IsPlayerInRange() && IsPlayerSeen())
+        {
+            Debug.Log("Player Seen!");
+            _player.GetComponent<PlayerMovement>().ReturnToStartingPoint();
+        }
     }
 
     private void ColorChanger()
