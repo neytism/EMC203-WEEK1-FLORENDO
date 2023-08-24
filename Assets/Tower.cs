@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public Material normal;
+    public Material triggered;
+
     public float towerRange = 5f;
     private Transform player;
 
@@ -26,10 +29,12 @@ public class Tower : MonoBehaviour
         if (distance < towerRange)
         {
             Debug.Log("IsNear");
+            GetComponent<MeshRenderer>().material = triggered;
         }
         else
         {
             Debug.Log("IsFar");
+            GetComponent<MeshRenderer>().material = normal;
         }
     }
 }

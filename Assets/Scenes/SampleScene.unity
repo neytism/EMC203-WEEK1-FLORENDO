@@ -657,6 +657,14 @@ PrefabInstance:
       value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 4679943250912813305, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
+      propertyPath: normal
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a8b8b21341923b4dad3843c9ac97fc8, type: 2}
+    - target: {fileID: 4679943250912813305, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
+      propertyPath: triggered
+      value: 
+      objectReference: {fileID: 2100000, guid: 421c7a37759ef3f4ea23790b31df09e0, type: 2}
+    - target: {fileID: 4679943250912813305, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: towerRange
       value: 10
       objectReference: {fileID: 0}
