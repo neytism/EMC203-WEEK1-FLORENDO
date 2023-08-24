@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -68,6 +69,11 @@ public class Tower : MonoBehaviour
         
         return xProduct + yProduct + zProduct;
     }
-    
-    
+
+    private void OnDrawGizmos()
+    {
+        Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
+        Gizmos.color = transparentRed;
+        Gizmos.DrawSphere(transform.position, towerRange);
+    }
 }
