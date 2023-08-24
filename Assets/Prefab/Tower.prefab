@@ -119,6 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd41a3fa52839b4ca62f70bf3cb0bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {fileID: 2100000, guid: 4a8b8b21341923b4dad3843c9ac97fc8, type: 2}
+  triggered: {fileID: 2100000, guid: 421c7a37759ef3f4ea23790b31df09e0, type: 2}
+  towerRange: 10
 --- !u!1 &3944627682714772393
 GameObject:
   m_ObjectHideFlags: 0

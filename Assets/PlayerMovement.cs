@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public Transform goalObject;
-    public float minDistance = 1;
+    public float minDistance = 5;
 
     // Update is called once per frame
     void Update()
@@ -26,8 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckDistanceFromGoal()
     {
-
-        float distance = Distance(transform, goalObject);
+        float distance = Distance(transform.position, goalObject.position);
 
         if (distance < minDistance)
         {
@@ -35,8 +34,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-    private float Distance(Transform firstPos, Transform secondPos)
+    private float Distance(Vector3 firstPos, Vector3 secondPos)
     {
-        return Mathf.Sqrt(Mathf.Pow((firstPos.position.x - secondPos.position.x), 2) + Mathf.Pow((firstPos.position.y - secondPos.position.y), 2) + Mathf.Pow((firstPos.position.z - secondPos.position.z), 2));
+        float xDifference = firstPos.x - secondPos.x;
+        float yDifference = firstPos.y - secondPos.y;
+        float zDifference = firstPos.z - secondPos.z;
+        
+        return Mathf.Sqrt(Mathf.Pow((xDifference), 2) + Mathf.Pow((yDifference), 2) + Mathf.Pow((zDifference), 2));
     }
 }

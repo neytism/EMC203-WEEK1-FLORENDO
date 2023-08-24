@@ -8,38 +8,40 @@ public class Tower : MonoBehaviour
     public Material triggered;
 
     public float towerRange = 5f;
-    private Transform player;
+    
+    private Transform _player;
+    private MeshRenderer _meshRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>().gameObject.transform;
+        _player = FindObjectOfType<PlayerMovement>().gameObject.transform;
+        _meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        IsPlayerInRange();
+        PlayerDistanceChecker();
     }
 
-    private void IsPlayerInRange()
+    private void PlayerDistanceChecker()
     {
-        float distance = Distance(transform, player);
-
-        if (distance < towerRange)
-        {
-            Debug.Log("IsNear");
-            GetComponent<MeshRenderer>().material = triggered;
-        }
-        else
-        {
-            Debug.Log("IsFar");
-            GetComponent<MeshRenderer>().material = normal;
-        }
+        _meshRenderer.material = IsPlayerInRange() ? triggered : normal;
     }
 
-    private float Distance(Transform firstPos, Transform secondPos)
+    private bool IsPlayerInRange()
     {
-        return Mathf.Sqrt(Mathf.Pow((firstPos.position.x - secondPos.position.x), 2) + Mathf.Pow((firstPos.position.y - secondPos.position.y), 2) + Mathf.Pow((firstPos.position.z - secondPos.position.z), 2));
+        float distance = Distance(transform.position, _player.position);
+        return distance < towerRange;
+    }
+
+    private float Distance(Vector3 firstPos, Vector3 secondPos)
+    {
+        float xDifference = firstPos.x - secondPos.x;
+        float yDifference = firstPos.y - secondPos.y;
+        float zDifference = firstPos.z - secondPos.z;
+        
+        return Mathf.Sqrt(Mathf.Pow((xDifference), 2) + Mathf.Pow((yDifference), 2) + Mathf.Pow((zDifference), 2));
     }
 }

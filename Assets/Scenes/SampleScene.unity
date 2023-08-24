@@ -343,7 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   goalObject: {fileID: 2077658388}
-  minDistance: 1
+  minDistance: 5
 --- !u!136 &1589590836
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -655,18 +655,6 @@ PrefabInstance:
     - target: {fileID: 2810136230886866248, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_Name
       value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679943250912813305, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
-      propertyPath: normal
-      value: 
-      objectReference: {fileID: 2100000, guid: 4a8b8b21341923b4dad3843c9ac97fc8, type: 2}
-    - target: {fileID: 4679943250912813305, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
-      propertyPath: triggered
-      value: 
-      objectReference: {fileID: 2100000, guid: 421c7a37759ef3f4ea23790b31df09e0, type: 2}
-    - target: {fileID: 4679943250912813305, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
-      propertyPath: towerRange
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5369754065820635033, guid: 5c33ad1817a2a5645aca60a9d5bb2281, type: 3}
       propertyPath: m_RootOrder
