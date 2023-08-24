@@ -5,35 +5,50 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public Material normal;
+    public Material near;
     public Material triggered;
 
     public float towerRange = 5f;
+    public float viewRange = 0.25f;
+
+    public MeshRenderer[] meshRenderers;
     
     private Transform _player;
-    private MeshRenderer _meshRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = FindObjectOfType<PlayerMovement>().gameObject.transform;
-        _meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerDistanceChecker();
+        ColorChanger();
     }
 
-    private void PlayerDistanceChecker()
+    private void ColorChanger()
     {
-        _meshRenderer.material = IsPlayerInRange() ? triggered : normal;
+        if (meshRenderers.Length == 0) return;
+        
+        foreach (MeshRenderer meshRenderer in meshRenderers)
+        {
+            meshRenderer.material = (IsPlayerInRange() && IsPlayerSeen()) ? triggered : IsPlayerInRange() ? near : normal;
+        }
     }
 
     private bool IsPlayerInRange()
     {
         float distance = Distance(transform.position, _player.position);
         return distance < towerRange;
+    }
+
+    private bool IsPlayerSeen()
+    {
+        Vector3 directionToPlayer = _player.position - transform.position;
+        float dotProduct = DotProduct(directionToPlayer.normalized, transform.forward);
+
+        return dotProduct > viewRange;
     }
 
     private float Distance(Vector3 firstPos, Vector3 secondPos)
@@ -44,4 +59,15 @@ public class Tower : MonoBehaviour
         
         return Mathf.Sqrt(Mathf.Pow((xDifference), 2) + Mathf.Pow((yDifference), 2) + Mathf.Pow((zDifference), 2));
     }
+
+    private float DotProduct(Vector3 firstPos, Vector3 secondPos)
+    {
+        float xProduct = firstPos.x * secondPos.x;
+        float yProduct = firstPos.y * secondPos.y;
+        float zProduct = firstPos.z * secondPos.z;
+        
+        return xProduct + yProduct + zProduct;
+    }
+    
+    
 }
