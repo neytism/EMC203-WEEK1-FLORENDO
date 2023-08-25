@@ -53,9 +53,11 @@ public class Tower : MonoBehaviour
     private bool IsPlayerSeen()
     {
         Vector3 directionToPlayer = _player.position - transform.position;
-        float dotProduct = DotProduct(directionToPlayer.normalized, transform.forward);
+        float dotProduct = DotProduct(NormalizeVector(directionToPlayer), transform.forward);
 
-        return dotProduct > viewRange;
+        float convertedRange = Mathf.Cos(viewRange * 0.5f * Mathf.Deg2Rad);
+        
+        return dotProduct > convertedRange;
     }
 
     private float Distance(Vector3 firstPos, Vector3 secondPos)
@@ -81,5 +83,23 @@ public class Tower : MonoBehaviour
         Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
         Gizmos.color = transparentRed;
         Gizmos.DrawSphere(transform.position, towerRange);
+        
+        if (_player != null )Gizmos.DrawLine(transform.position, _player.position);
+    }
+
+    private float Magnitude(Vector3 v)
+    {
+        return Mathf.Sqrt(Mathf.Pow(v.x, 2) + Mathf.Pow(v.y, 2) + Mathf.Pow(v.z, 2));
+    }
+
+    private Vector3 NormalizeVector(Vector3 v)
+    {
+        float mag = Magnitude(v);
+
+        v.x /= mag;
+        v.y /= mag;
+        v.z /= mag;
+        
+        return v;
     }
 }
