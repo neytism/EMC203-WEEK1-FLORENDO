@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour
     public Material triggered;
 
     public float towerRange = 5f;
-    public float viewRange = 0.25f;
+    public float viewAngleRange = 180f;
 
     public MeshRenderer[] meshRenderers;
     
@@ -54,10 +54,8 @@ public class Tower : MonoBehaviour
     {
         Vector3 directionToPlayer = _player.position - transform.position;
         float dotProduct = DotProduct(NormalizeVector(directionToPlayer), transform.forward);
-
-        float convertedRange = Mathf.Cos(viewRange * 0.5f * Mathf.Deg2Rad);
         
-        return dotProduct > convertedRange;
+        return dotProduct > ConvertViewAngle(viewAngleRange);
     }
 
     private float Distance(Vector3 firstPos, Vector3 secondPos)
@@ -101,5 +99,10 @@ public class Tower : MonoBehaviour
         v.z /= mag;
         
         return v;
+    }
+
+    private float ConvertViewAngle(float angle)
+    {
+        return Mathf.Cos(angle * 0.5f * Mathf.Deg2Rad);
     }
 }
