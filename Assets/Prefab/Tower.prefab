@@ -159,12 +159,13 @@ MonoBehaviour:
   near: {fileID: 2100000, guid: 27ad6673b70e82f48b227e4febef64c8, type: 2}
   triggered: {fileID: 2100000, guid: 421c7a37759ef3f4ea23790b31df09e0, type: 2}
   towerRange: 20
-  viewRange: 180
+  viewAngleRange: 180
   meshRenderers:
   - {fileID: 3798126396404316674}
   - {fileID: 4401399526017116329}
   - {fileID: 5401821768559553363}
   - {fileID: 6556247589987908437}
+  enableDebug: 0
 --- !u!1 &7443063656378909364
 GameObject:
   m_ObjectHideFlags: 0

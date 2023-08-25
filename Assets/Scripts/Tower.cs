@@ -13,8 +13,11 @@ public class Tower : MonoBehaviour
     public float viewAngleRange = 180f;
 
     public MeshRenderer[] meshRenderers;
+
+    public bool enableDebug = true;
     
     private Transform _player;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -76,15 +79,6 @@ public class Tower : MonoBehaviour
         return xProduct + yProduct + zProduct;
     }
 
-    private void OnDrawGizmos()
-    {
-        Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
-        Gizmos.color = transparentRed;
-        Gizmos.DrawSphere(transform.position, towerRange);
-        
-        if (_player != null )Gizmos.DrawLine(transform.position, _player.position);
-    }
-
     private float Magnitude(Vector3 v)
     {
         return Mathf.Sqrt(Mathf.Pow(v.x, 2) + Mathf.Pow(v.y, 2) + Mathf.Pow(v.z, 2));
@@ -104,5 +98,16 @@ public class Tower : MonoBehaviour
     private float ConvertViewAngle(float angle)
     {
         return Mathf.Cos(angle * 0.5f * Mathf.Deg2Rad);
+    }
+    
+    private void OnDrawGizmos()
+    {
+        if (!enableDebug) return;
+        
+        Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
+        Gizmos.color = transparentRed;
+        Gizmos.DrawSphere(transform.position, towerRange);
+        
+        if (_player != null )Gizmos.DrawLine(transform.position, _player.position);
     }
 }
